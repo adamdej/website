@@ -1,0 +1,564 @@
+/* ============================================
+   ROOT VARIABLES - Color & Spacing
+   ============================================ */
+:root {
+    --text-dark: #473C2E;
+    --text-muted: #6D5E4A;
+    --accent: #8D7B61;
+    --border: #D9CBB5;
+    --bg-light: #FEF6E8;
+    --bg-cream: #F9F2E5;
+    --page-padding: 1.5rem;
+    --max-width: 1100px;
+    --radius: 12px;
+}
+
+/* Global styles for all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   BODY & GLOBAL
+   ============================================ */
+body {
+    margin: 0;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ============================================
+   NAVIGATION - Sticky bar at top
+   ============================================ */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(217, 203, 181, 0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    padding: 1rem var(--page-padding);
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-links a {
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 200ms ease;
+}
+
+.nav-links a:hover {
+    background: rgba(141, 123, 97, 0.1);
+}
+
+/* ============================================
+   SECTION STRUCTURE - Full-width sections
+   ============================================ */
+/* Each section covers full viewport width and has consistent padding */
+.section {
+    width: 100%;
+    padding: 4rem var(--page-padding);
+    border-bottom: 1px solid rgba(217, 203, 181, 0.3);
+    /* Prevents nav links from scrolling the section too far down */
+    scroll-margin-top: 5rem;
+}
+
+.section-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* ============================================
+   SECTION 1: HERO
+   ============================================ */
+/* Hero section holds the carousel and the visible hero content above it. */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(254, 246, 232, 0.85), rgba(249, 242, 229, 0.85));
+}
+
+/* Light overlay softens the carousel so text is easier to read. */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.42);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Wrapper for the carousel slides, fully covering the hero background. */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+}
+
+/* Each slide covers the full hero area and fades in/out by changing opacity. */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-slide.active {
+    opacity: 1;
+}
+
+.hero-section .section-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* The intro content panel on top of the carousel, with a soft translucent background. */
+.hero-left {
+    display: grid;
+    gap: 1.5rem;
+    padding: 2.5rem;
+    max-width: min(560px, 100%);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(8px);
+}
+
+.hero-left h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: var(--text-dark);
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.occupation {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 200ms ease;
+    border: none;
+    cursor: pointer;
+}
+
+.link-button:hover {
+    background: #7A6B52;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(141, 123, 97, 0.2);
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-frame {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid rgba(217, 203, 181, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ============================================
+   SECTION 2: ABOUT
+   ============================================ */
+.about-section {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.about-section .section-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.about-left,
+.about-right {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.about-section h2 {
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.about-section p {
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+.about-section ul {
+    margin: 0;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.about-section li {
+    margin-bottom: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Styling for individual education qualifications within the about section */
+.qualification-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(217, 203, 181, 0.3);
+}
+
+.qualification-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.qualification-item h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+/* Metadata for education (institution and dates) */
+.qualification-meta {
+    margin: 0 0 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Additional education details (grade, notes) */
+.qualification-detail {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ============================================
+   SECTION 3: EXPERIENCE
+   ============================================ */
+.experience-section {
+    background: linear-gradient(135deg, rgba(249, 242, 229, 0.6), rgba(247, 241, 230, 0.6));
+}
+
+.experience-section .section-content {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.experience-section h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.section-subtitle {
+    margin: 0.5rem 0 0;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.experience-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(217, 203, 181, 0.5);
+    border-radius: var(--radius);
+    padding: 2rem;
+    transition: all 200ms ease;
+}
+
+.experience-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.experience-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.meta {
+    margin: 0 0 1.2rem;
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.experience-card ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.experience-card li {
+    margin-bottom: 0.6rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* ============================================
+   SECTION 4: CONTACT
+   ============================================ */
+.contact-section {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.contact-section .section-content {
+    display: grid;
+    gap: 2.5rem;
+}
+
+.contact-section h2 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: grid;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(217, 203, 181, 0.5);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.contact-info p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.8;
+}
+
+.contact-info a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(217, 203, 181, 0.5);
+    border-radius: var(--radius);
+    padding: 2rem;
+}
+
+.contact-form label {
+    display: grid;
+    gap: 0.6rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(141, 123, 97, 0.2);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--text-dark);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border-color 200ms ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(141, 123, 97, 0.1);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.95rem 1.75rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 200ms ease;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #7A6B52;
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    width: 100%;
+    padding: 2rem var(--page-padding);
+    background: rgba(217, 203, 181, 0.2);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .hero-section .section-content,
+    .about-section .section-content,
+    .contact-grid,
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 2.5rem var(--page-padding);
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .nav-links {
+        gap: 0.25rem;
+    }
+
+    .nav-links a {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-left h1 {
+        font-size: 1.8rem;
+    }
+
+    .social-links {
+        flex-direction: column;
+    }
+
+    .link-button {
+        width: 100%;
+        text-align: center;
+    }
+}

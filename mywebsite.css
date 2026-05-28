@@ -1,0 +1,163 @@
+/* ==========================================
+   ROOT VARIABLES - Define reusable colors and sizing
+   ========================================== */
+:root {
+    /* Color palette - lighter, more muted background colors */
+    --bg-strong: #FEF9F3;
+    --bg-medium: #F0E6D2;
+    --bg-soft: #FFFBF0;
+    
+    /* Text and accent colors - muted warm tones */
+    --accent-dark: #6B5D3F;
+    --text-dark: #4A3E2D;
+    --text-light: #ffffff;
+    --border-color: #C9B998;
+    
+    /* Layout sizing */
+    --page-padding: 2rem;
+    --max-width: 960px;
+    
+    /* Professional spacing scale */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: /*1.5rem;*/ 4rem; /* Slightly wider for a more compact look */
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}r
+/*{padding:0;margin:0;box-sizing:border-box;} /* Reset default padding/margins and use border-box sizing */
+/* ==========================================
+   BODY - Main page container styling
+   ========================================== */
+body {
+    margin: 0; /* Remove default browser margins */
+    min-height: 100vh; /* Full viewport height */
+    
+    /* Create a subtle gradient with transparent light cream background */
+    background: linear-gradient(180deg, rgba(254, 249, 243, 0.95), rgba(254, 249, 243, 0.98));
+    background-color: #FFFBF0;
+    
+    color: var(--text-dark); /* Default text color for entire page */
+    /* Professional system font stack for maximum compatibility */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6; /* Slightly improved line spacing for readability */
+    font-weight: 400; /* Standard font weight */
+}
+
+/* ==========================================
+   LAYOUT CONTAINERS - Center and constrain page width
+   ========================================== */
+body > main,
+body > section,
+body > nav {
+    max-width: var(--max-width); /* Prevent content from getting too wide */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 0 var(--page-padding); /* Add side padding on smaller screens */
+}
+
+/* ==========================================
+   HERO SECTION - Name and occupation title area
+   ========================================== */
+#hero {
+    padding: var(--spacing-xl) 0 var(--spacing-lg); /* Professional vertical spacing */
+    text-align: center; /* Center all text */
+    border-bottom: 2px solid rgba(107, 93, 63, 0.15); /* Subtle divider line */
+}
+
+/* Hero name - the main headline */
+#hero #name {
+    margin: 0; /* Remove default heading margin */
+    font-size: clamp(2.8rem, 5vw, 4.8rem); /* Responsive sizing: min 2.8rem, preferred 5% of viewport, max 4.8rem */
+    letter-spacing: -0.02em; /* Refined letter spacing */
+    font-weight: 600; /* Slightly bolder for impact */
+    color: var(--text-dark);
+}
+
+/* Hero occupation/subtitle */
+#hero #job {
+    margin: var(--spacing-sm) auto 0; /* Refined gap above, centered */
+    font-size: clamp(1.2rem, 2vw, 1.8rem); /* Responsive sizing, proportional to name */
+    color: var(--accent-dark);
+    font-weight: 500; /* Medium weight for balance */
+}
+
+/* ==========================================
+   NAVIGATION BAR - Menu links styling
+   ========================================== */
+nav {
+    display: flex; /* Use flexbox to arrange items horizontally */
+    justify-content: center; /* Center all nav links */
+    flex-wrap: wrap; /* Allow items to wrap on small screens */
+    gap: 0.5rem; /* Tighter spacing between buttons */
+    
+    background: linear-gradient(135deg, #F0E6D2 0%, #E8DCC8 100%); /* Professional gradient */
+    padding: var(--spacing-md); /* Professional padding */
+    border-radius: 12px; /* Refined corners */
+    border: none; /* Remove border for cleaner appearance */
+    margin-bottom: var(--spacing-xl); /* Space below nav before content */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Subtle professional shadow */
+}
+
+/* Individual nav link styling */
+nav a {
+    color: var(--accent-dark); /* Professional dark text instead of white */
+    text-decoration: none; /* Remove underline */
+    font-size: 0.95rem;
+    font-weight: 600; /* Bolder for clarity */
+    
+    padding: 0.8rem 1.5rem; /* Refined padding */
+    border-radius: 8px; /* Slightly less rounded for professionalism */
+    background: rgba(255, 255, 255, 0.6); /* Cleaner white background */
+    
+    /* Smooth animation when hovering */
+    transition: all 200ms ease;
+}
+
+/* Nav link on hover - interactive feedback */
+nav a:hover {
+    background: rgba(255, 255, 255, 1); /* Full white on hover */
+    transform: translateY(-2px); /* Lift button for emphasis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Hovering shadow */
+}
+
+/* ==========================================
+   CONTENT SECTIONS - Spacing for all section containers
+   ========================================== */
+section {
+    padding: var(--spacing-lg) 0; /* Professional vertical padding */
+}
+
+/* Content section cards - professional boxed containers */
+section:not(#hero) {
+    background: rgba(255, 255, 255, 0.6); /* Slightly translucent white */
+    padding: var(--spacing-lg); /* Internal spacing */
+    margin: var(--spacing-md) auto; /* Center sections and add vertical spacing */
+    max-width: calc(var(--max-width) - var(--page-padding) * 2); /* Match parent container width minus padding */
+    border-radius: 12px; /* Rounded corners */
+    border: none; /* Remove border for cleaner look */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05); /* Professional shadow */
+}
+
+/* Headings within sections */
+section h2,
+section h1 {
+    margin-top: 0; /* Remove extra space above headings */
+    margin-bottom: var(--spacing-sm); /* Space below heading */
+    font-size: 1.8rem; /* Professional heading size */
+    font-weight: 600; /* Bold for hierarchy */
+}
+
+/* Color all section headings with accent dark color */
+#home h1,
+#about h2,
+#skills h2,
+#contact h2 {
+    color: var(--accent-dark);
+}
+
+/* Paragraph text styling */
+section p {
+    max-width: 38rem; /* Limit line width for readability */
+    margin: var(--spacing-sm) auto 0; /* Professional spacing */
+    line-height: 1.7; /* Improved readability */
+    color: var(--text-dark);
+}

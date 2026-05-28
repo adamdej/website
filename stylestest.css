@@ -1,0 +1,60 @@
+:root {
+    --max-form-width: 320px;
+    --form-gap: 0.75rem;
+    --section-padding: 1.5rem;
+    --headline-size: 2.8rem;
+    --subtitle-size: 1.4rem;
+    --text-color: #444;
+    --border-color: #ddd;
+    --surface-bg: #fafafa;
+    --skill-box-width: 220px;
+    --skill-box-radius: 8px;
+    --skill-box-padding: 1rem;
+    --list-indent: 1.2rem;
+}
+
+
+
+.home {
+    padding: var(--section-padding) 0;
+}
+
+.home-intro {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.home-text {
+    flex: 1 1 320px;
+}
+
+.home-text h1 {
+    font-size: var(--headline-size);
+    margin: 0;
+}
+
+.home-text h3 {
+    font-size: var(--subtitle-size);
+    margin: 0.75rem 0 0;
+    color: var(--text-color);
+}
+
+.home-skills {
+    flex: 0 0 var(--skill-box-width);
+    border: 1px solid var(--border-color);
+    padding: var(--skill-box-padding);
+    border-radius: var(--skill-box-radius);
+    background: var(--surface-bg);
+}
+
+.home-skills h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.home-skills ul {
+    margin: 0;
+    padding-left: var(--list-indent);
+}
