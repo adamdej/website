@@ -363,10 +363,36 @@ body {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
 }
 
-.experience-card h3 {
+/* Header section combining company logo and job title information */
+.card-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 1.2rem;
+}
+
+/* Company logo displayed in the top-left corner of each card */
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+/* Wrapper for title and metadata to allow logo to sit beside it */
+.card-title-wrapper {
+    flex: 1;
+}
+
+.card-title-wrapper h3 {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
     color: var(--text-dark);
+}
+
+.card-title-wrapper .meta {
+    margin: 0;
 }
 
 .meta {
